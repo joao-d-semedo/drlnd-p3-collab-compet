@@ -53,7 +53,7 @@ class Agent():
             output_activation=nn.Tanh,
             seed=seed
          ).to(device)
-        self.actor_optimizer     = optim.Adam(self.actor_local.parameters(), lr=ACTOR_LR)
+        self.actor_optimizer = optim.Adam(self.actor_local.parameters(), lr=ACTOR_LR)
         
         # Critic
         self.critic_local = Critic(
@@ -68,7 +68,7 @@ class Agent():
             output_layer_init=1e-3,
             seed=seed
          ).to(device)
-        self.critic_optimizer    = optim.Adam(self.critic_local.parameters(), lr=CRITIC_LR)
+        self.critic_optimizer = optim.Adam(self.critic_local.parameters(), lr=CRITIC_LR)
 
         self.exploration_noise = OrnsteinUhlenbeckProcess(size=(num_agents, action_size), std=noise_process_std, theta=noise_process_theta)
 
